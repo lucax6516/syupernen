@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GELATÒ • Curso de Sorvete Artesanal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,500;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFF9F0;
+            --bg2: #FFF5E6;
+            --bg3: #FFE8D6;
+            --primary: #FF6B4A;
+            --primary-dark: #E85B3A;
+            --secondary: #7B3F5C;
+            --green: #2D6A4F;
+            --yellow: #FFC107;
+            --chocolate: #3E2723;
+            --white: #ffffff;
+            --cream: #FFF9F0;
+            --text-dark: #3E2723;
+            --text-gray: #6B5B52;
+            --font-title: 'Playfair Display', 'Young Serif', Georgia, serif;
+            --font-body: 'Inter', 'DM Sans', sans-serif;
+            --font-accent: 'Space Grotesk', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(62, 39, 35, 0.06);
+            --shadow-md: 0 8px 32px rgba(62, 39, 35, 0.10);
+            --shadow-lg: 0 20px 48px rgba(62, 39, 35, 0.14);
+            --shadow-primary: 0 6px 24px rgba(255, 107, 74, 0.35);
+            --shadow-green: 0 4px 16px rgba(45, 106, 79, 0.25);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 36px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --spring: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a,
+        button,
+        input,
+        select,
+        [role="button"],
+        .clickable {
+            cursor: pointer;
+        }
+
+        /* HEADER */
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 249, 240, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 107, 74, 0.15);
+            transition: padding 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+        }
+        #site-header.scrolled {
+            padding: 10px 40px;
+            background: rgba(255, 249, 240, 0.96);
+            box-shadow: 0 2px 20px rgba(62, 39, 35, 0.08);
+        }
+        .logo {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.02em;
+            transition: font-size 0.35s ease;
+        }
+        .scrolled .logo {
+            font-size: 1.5rem;
+        }
+        .logo-icon {
+            font-size: 1.6rem;
+            transition: font-size 0.35s ease;
+        }
+        .scrolled .logo-icon {
+            font-size: 1.3rem;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 4px 0;
+            transition: color var(--transition);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: width 0.35s ease;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header-cta {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            transition: all var(--transition);
+            white-space: nowrap;
+            box-shadow: var(--shadow-primary);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .header-cta:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+            box-shadow: 0 10px 28px rgba(255, 107, 74, 0.45);
+        }
+        .user-icon {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+        }
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            #site-header {
+                padding: 12px 20px;
+            }
+            .scrolled {
+                padding: 8px 20px;
+            }
+            .header-cta {
+                padding: 9px 16px;
+            }
+        }
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #FFF9F0 0%, #FFF5E6 50%, #FFE8D6 100%);
+        }
+        @media (max-width: 900px) {
+            #hero {
+                flex-direction: column-reverse;
+                padding: 100px 24px 60px;
+                text-align: center;
+                gap: 40px;
+            }
+        }
+        .hero-left {
+            flex: 0 0 55%;
+            z-index: 2;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(45, 106, 79, 0.12);
+            color: var(--green);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(45, 106, 79, 0.2);
+        }
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--chocolate);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .hero-title .highlight {
+            color: var(--primary);
+            display: inline-block;
+            animation: waveText 2.5s ease-in-out infinite;
+        }
+        @keyframes waveText {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-6px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            75% {
+                transform: translateY(4px);
+            }
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+            max-width: 480px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: all var(--transition);
+            box-shadow: var(--shadow-primary);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(255, 107, 74, 0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            border-radius: 50px;
+        }
+        .btn-outline:hover {
+            color: #fff;
+        }
+        .btn-outline:hover::before {
+            transform: scaleX(1);
+        }
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .avatars {
+            display: flex;
+        }
+        .avatars span {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f0c8b8;
+            border: 3px solid #fff;
+            margin-left: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .avatars span:first-child {
+            margin-left: 0;
+        }
+        .stars-text {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        .hero-right {
+            flex: 0 0 45%;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+        .hero-icecream {
+            position: relative;
+            width: 320px;
+            height: 400px;
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            30% {
+                transform: translateY(-22px);
+            }
+            60% {
+                transform: translateY(-8px);
+            }
+        }
+        .hero-icecream .scoop-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: -20px;
+            position: relative;
+        }
+        .hero-icecream .scoop {
+            width: 130px;
+            height: 110px;
+            border-radius: 60% 60% 45% 45%;
+            position: relative;
+            box-shadow: inset 0 -15px 30px rgba(0, 0, 0, 0.12), 0 10px 30px rgba(0, 0, 0, 0.18);
+        }
+        .scoop-1 {
+            background: radial-gradient(circle at 40% 30%, #ffb3c1, #e8576b);
+            z-index: 3;
+        }
+        .scoop-2 {
+            background: radial-gradient(circle at 40% 30%, #fffef5, #f5e6c8);
+            z-index: 2;
+            margin-top: -28px;
+        }
+        .scoop-3 {
+            background: radial-gradient(circle at 40% 30%, #8b5e3c, #3e2723);
+            z-index: 1;
+            margin-top: -28px;
+        }
+        .cone-triangle {
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-top: 90px solid #d4a574;
+            margin-top: -18px;
+            position: relative;
+            z-index: 0;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+        }
+        .particle {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: orbit 6s linear infinite;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        .chocolate-wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .chocolate-wave svg {
+            width: 100%;
+            height: 80px;
+            display: block;
+        }
+
+        /* TRUST BAR */
+        #trust-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 40px 30px;
+            background: #fffefb;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform var(--spring);
+        }
+        .trust-item:hover {
+            transform: scale(1.08);
+        }
+        .trust-item .trust-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 107, 74, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all var(--spring);
+        }
+        .trust-item:hover .trust-icon {
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(255, 107, 74, 0.18);
+        }
+        .trust-text strong {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .trust-text span {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            font-family: var(--font-title);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .section-underline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .section-underline span {
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* PROGRAMA */
+        #programa {
+            padding: 80px 40px;
+            background: var(--bg);
+        }
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 2px solid #e0d5cc;
+            background: transparent;
+            font-weight: 600;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all var(--transition);
+            font-size: 0.9rem;
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-primary);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 28px 20px 24px;
+            text-align: center;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .product-img {
+            font-size: 5rem;
+            margin-bottom: 16px;
+        }
+        .product-name {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 14px;
+        }
+
+        /* ASSINATURA */
+        #assinatura {
+            padding: 80px 40px;
+            background: #fffefb;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 36 L18 45 L22 30 L10 20 L25 20 Z' fill='%23f0e0d0' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: 80px 80px;
+        }
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .plan-card {
+            background: #fff;
+            border-radius: var(--radius-xl);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .plan-card.featured {
+            border: 3px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 7px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: var(--shadow-primary);
+        }
+        .plan-price {
+            font-family: var(--font-accent);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--chocolate);
+            margin: 12px 0;
+        }
+        .btn-plan {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition);
+        }
+        .btn-plan:hover {
+            background: var(--primary-dark);
+            transform: scale(1.04);
+        }
+
+        /* FOOTER */
+        #site-footer {
+            background: #2a1f1b;
+            color: #e8ddd3;
+            padding: 50px 40px 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        #site-footer h4 {
+            font-family: var(--font-title);
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        #site-footer a {
+            color: #c0b0a0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 3px 0;
+            transition: color var(--transition);
+        }
+        #site-footer a:hover {
+            color: var(--primary);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 16px;
+            background: #1a1412;
+            color: #a09080;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header">
+        <a href="#" class="logo"><span class="logo-icon">🍦</span>GELATÒ</a>
+        <ul class="nav-links">
+            <li><a href="#programa">Programa</a></li>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#assinatura">Planos</a></li>
+            <li><a href="#nossa-historia">Nossa História</a></li>
+        </ul>
+        <div class="header-actions">
+            <button class="user-icon" title="Área do Aluno">👤</button>
+            <a href="https://wa.me/5519981909667?text=Ol%C3%A1%21+Tenho+interesse+no+curso+de+sorvete+artesanal." class="header-cta">Inscreva-se</a>
+            <button class="hamburger">☰</button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-left">
+            <div class="hero-badge">🍦 Curso Online • Ao Vivo</div>
+            <h1 class="hero-title">Aprenda a fazer sorvete que <span class="highlight">derrete</span> corações.</h1>
+            <p class="hero-subtitle">Do zero ao pote: técnicas italianas, ingredientes naturais e os segredos dos mestres. Aulas gravadas + 3 workshops ao vivo.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5519981909667?text=Ol%C3%A1%21+Quero+me+inscrever+no+curso+de+sorvete+artesanal." class="btn-primary">Quero me Inscrever</a>
+                <a href="#programa" class="btn-outline">Ver Programa Completo</a>
+            </div>
+            <div class="social-proof">
+                <div class="avatars"><span>😊</span><span>😋</span><span>🥰</span></div>
+                <span class="stars-text">⭐ 4.9 · +2.000 alunos formados</span>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-icecream">
+                <div class="scoop-stack">
+                    <div class="scoop scoop-1"></div>
+                    <div class="scoop scoop-2"></div>
+                    <div class="scoop scoop-3"></div>
+                </div>
+                <div class="cone-triangle"></div>
+                <span class="particle" style="top:8%;left:2%;">🍊</span>
+                <span class="particle" style="top:45%;right:4%;">🫐</span>
+                <span class="particle" style="bottom:20%;left:8%;">💧</span>
+            </div>
+        </div>
+        <div class="chocolate-wave">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C360,80 720,0 1440,30 L1440,80 L0,80 Z" fill="#3E2723" opacity="0.75"/></svg>
+        </div>
+    </section>
+
+    <section id="trust-bar">
+        <div class="trust-item"><div class="trust-icon">🎓</div><div class="trust-text"><strong>Certificado Incluso</strong><span>Reconhecido pelo mercado</span></div></div>
+        <div class="trust-item"><div class="trust-icon">📱</div><div class="trust-text"><strong>100% Online</strong><span>Estude no seu ritmo</span></div></div>
+        <div class="trust-item"><div class="trust-icon">👨‍🍳</div><div class="trust-text"><strong>Mentoria ao Vivo</strong><span>Tire dúvidas com chefs</span></div></div>
+        <div class="trust-item"><div class="trust-icon">🥄</div><div class="trust-text"><strong>Receitas Exclusivas</strong><span>Segredos da gelateria artesanal</span></div></div>
+    </section>
+
+    <section id="programa">
+        <h2 class="section-title">O Que Você Vai Aprender</h2>
+        <div class="section-underline"><span></span><span class="spoon-icon">🍨</span><span></span></div>
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="bases">Bases e Cremes</button>
+            <button class="tab-btn" data-tab="sorbets">Sorbets & Frutas</button>
+            <button class="tab-btn" data-tab="especiais">Edições Especiais</button>
+        </div>
+        <div class="product-grid" id="modulos-grid"></div>
+    </section>
+
+    <section id="como-funciona" style="padding:80px 40px;background:var(--bg);">
+        <h2 class="section-title">Como Funciona o Curso</h2>
+        <div class="section-underline"><span></span><span class="spoon-icon">✨</span><span></span></div>
+        <div class="steps-line" style="display:flex;gap:30px;max-width:1000px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+            <div class="step" style="flex:1 1 200px;text-align:center;"><div class="step-icon">📝</div><h4>1. Você se Inscreve</h4><p>Escolha seu plano e ganhe acesso imediato.</p></div>
+            <div class="step" style="flex:1 1 200px;text-align:center;"><div class="step-icon">🎥</div><h4>2. Aulas Gravadas</h4><p>Mais de 20 horas de conteúdo prático.</p></div>
+            <div class="step" style="flex:1 1 200px;text-align:center;"><div class="step-icon">👥</div><h4>3. Workshops ao Vivo</h4><p>3 encontros para tirar dúvidas e praticar.</p></div>
+            <div class="step" style="flex:1 1 200px;text-align:center;"><div class="step-icon">🏅</div><h4>4. Certificado</h4><p>Conclua e receba seu certificado digital.</p></div>
+        </div>
+    </section>
+
+    <section id="wall-of-love" style="padding:80px 40px;background:#fffefb;">
+        <h2 class="section-title">Alunos que já transformaram sua paixão</h2>
+        <div class="section-underline"><span></span><span class="spoon-icon">💛</span><span></span></div>
+        <div class="testimonial-carousel" style="display:flex;gap:20px;overflow-x:auto;max-width:1000px;margin:0 auto;padding:10px 0;">
+            <div class="testimonial-card" style="min-width:280px;background:#fff;border-radius:28px;padding:24px;box-shadow:var(--shadow-sm);"><p>"Agora faço sorvetes melhores que os da sorveteria! O curso mudou minha vida."</p><strong>Mariana L.</strong> ⭐⭐⭐⭐⭐</div>
+            <div class="testimonial-card" style="min-width:280px;background:#fff;border-radius:28px;padding:24px;box-shadow:var(--shadow-sm);"><p>"As técnicas de gelato italiano são incríveis. Já estou vendendo para amigos."</p><strong>Carlos E.</strong> ⭐⭐⭐⭐⭐</div>
+            <div class="testimonial-card" style="min-width:280px;background:#fff;border-radius:28px;padding:24px;box-shadow:var(--shadow-sm);"><p>"O suporte dos chefs é sensacional. Recomendo demais!"</p><strong>Ana J.</strong> ⭐⭐⭐⭐⭐</div>
+        </div>
+    </section>
+
+    <section id="nossa-historia" style="padding:80px 40px;background:var(--bg);display:flex;gap:40px;max-width:1100px;margin:0 auto;flex-wrap:wrap;align-items:center;">
+        <div style="flex:1 1 300px;aspect-ratio:1/1;background:#f5e6d8;border-radius:28px;display:flex;align-items:center;justify-content:center;font-size:8rem;transform:rotate(-3deg);border:6px solid #fff;">👨‍🍳🍓</div>
+        <div style="flex:1 1 300px;">
+            <h3 style="font-family:var(--font-title);font-size:2rem;color:var(--secondary);">Da paixão ao conhecimento</h3>
+            <p>Começamos em 2018 compartilhando receitas caseiras. Hoje já formamos mais de <strong>2.000 alunos</strong> que transformaram a arte do sorvete em profissão ou prazer. Nossa missão é democratizar o gelato de verdade.</p>
+        </div>
+    </section>
+
+    <section id="faq" style="padding:80px 40px;background:#fffefb;max-width:800px;margin:0 auto;">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="section-underline"><span></span><span class="spoon-icon">❓</span><span></span></div>
+        <div class="faq-item" style="border-bottom:1px solid #e8ddd3;padding:16px 0;cursor:pointer;" onclick="this.classList.toggle('open')">
+            <div style="display:flex;justify-content:space-between;"><span>🍦 Preciso ter experiência?</span><span>+</span></div>
+            <div style="max-height:0;overflow:hidden;transition:0.3s;">Não! O curso é do zero, ideal para iniciantes e também para quem já empreende.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #e8ddd3;padding:16px 0;cursor:pointer;" onclick="this.classList.toggle('open')">
+            <div style="display:flex;justify-content:space-between;"><span>🎓 Tem certificado?</span><span>+</span></div>
+            <div style="max-height:0;overflow:hidden;transition:0.3s;">Sim, certificado digital reconhecido em todo o Brasil.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #e8ddd3;padding:16px 0;cursor:pointer;" onclick="this.classList.toggle('open')">
+            <div style="display:flex;justify-content:space-between;"><span>⏳ Por quanto tempo tenho acesso?</span><span>+</span></div>
+            <div style="max-height:0;overflow:hidden;transition:0.3s;">Acesso vitalício! Estude no seu tempo.</div>
+        </div>
+    </section>
+
+    <section id="assinatura">
+        <h2 class="section-title">Escolha seu Plano</h2>
+        <div class="section-underline"><span></span><span class="spoon-icon">🎯</span><span></span></div>
+        <div class="plan-grid" id="plan-grid"></div>
+        <p style="text-align:center;margin-top:20px;">🔒 Garantia de 7 dias ou seu dinheiro de volta.</p>
+    </section>
+
+    <section id="newsletter" style="padding:80px 40px;background:linear-gradient(135deg,#FF6B4A,#c0392b);text-align:center;color:#fff;clip-path:ellipse(120% 100% at 50% 0%);">
+        <h3 style="font-family:var(--font-title);font-size:2rem;">Ganhe uma aula grátis!</h3>
+        <p>Cadastre-se e receba uma aula completa de sorvete de pistache.</p>
+        <div style="display:flex;gap:10px;max-width:500px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+            <input type="email" placeholder="Seu melhor e-mail" style="flex:1 1 250px;padding:14px 20px;border-radius:50px;border:2px solid #fff;background:rgba(255,255,255,0.2);color:#fff;" id="news-email">
+            <button onclick="document.getElementById('coupon-display').innerText='Aula enviada! 🎉'" style="padding:14px 28px;border-radius:50px;border:none;background:#fff;color:#FF6B4A;font-weight:700;">Quero minha aula</button>
+        </div>
+        <div id="coupon-display" style="margin-top:14px;font-weight:700;"></div>
+    </section>
+
+    <footer id="site-footer">
+        <div><h4>🍦 GELATÒ</h4><p>CNPJ: 60.843.768/0001-59<br>ML SORVETERIA E CAFETERIA LTDA</p></div>
+        <div><h4>Mapa do Site</h4><a href="#hero">Início</a><a href="#programa">Programa</a><a href="#assinatura">Planos</a></div>
+        <div><h4>Legal</h4><a href="privacidade.html">Política de Privacidade</a><a href="reembolso.html">Política de Reembolso</a><a href="termos.html">Termos de Uso</a><a href="aviso.html">Aviso Legal</a><a href="entrega.html">Política de Entrega</a></div>
+        <div><h4>Redes Sociais</h4><a href="#">📸 Instagram</a><a href="#">📘 Facebook</a></div>
+    </footer>
+    <div class="footer-bottom">© 2025 Gelatò. Todos os direitos reservados. 🍦</div>
+
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;background:#FF6B4A;color:#fff;border:none;font-size:1.4rem;cursor:pointer;z-index:998;opacity:0;pointer-events:none;transition:0.3s;">🥄</button>
+
+    <script>
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+            const btn = document.getElementById('back-to-top');
+            if (window.scrollY > 500) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; } else { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
+        });
+
+        const modulos = {
+            bases: [
+                { nome: 'Base Branca Cremosa', desc: 'Fior di latte, crema e variações.', emoji: '🍨' },
+                { nome: 'Base de Chocolate', desc: 'Chocolate belga e cacau intenso.', emoji: '🍫' },
+                { nome: 'Gelato de Baunilha', desc: 'Fava de baunilha verdadeira.', emoji: '🤍' },
+            ],
+            sorbets: [
+                { nome: 'Sorbet de Manga', desc: 'Técnica para frutas tropicais.', emoji: '🥭' },
+                { nome: 'Sorbet de Frutas Vermelhas', desc: 'Mix de berries e equilíbrio.', emoji: '🍓' },
+                { nome: 'Sorbet Cítrico', desc: 'Limão siciliano e maracujá.', emoji: '🍋' },
+            ],
+            especiais: [
+                { nome: 'Tiramisù Gelato', desc: 'Mascarpone e café espresso.', emoji: '☕' },
+                { nome: 'Doce de Leite com Nozes', desc: 'Caramelo e crocância.', emoji: '🥜' },
+                { nome: 'Gelato de Pistache', desc: 'Pistache italiano puro.', emoji: '💚' },
+            ]
+        };
+        const grid = document.getElementById('modulos-grid');
+        let activeTab = 'bases';
+        function renderModulos(tab) {
+            grid.innerHTML = modulos[tab].map(m => `
+                <div class="product-card">
+                    <div class="product-img">${m.emoji}</div>
+                    <div class="product-name">${m.nome}</div>
+                    <div class="product-desc">${m.desc}</div>
+                </div>
+            `).join('');
+        }
+        renderModulos('bases');
+        document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', function() {
+            document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+            this.classList.add('active');
+            activeTab = this.dataset.tab;
+            renderModulos(activeTab);
+        }));
+
+        const plans = [
+            { nome: 'Curso Essencial', preco: 297, original: 497, beneficios: ['Aulas gravadas', 'Certificado', 'Suporte 30 dias'], icon: '📘' },
+            { nome: 'Curso Completo', preco: 597, original: 997, beneficios: ['Tudo do Essencial', '+3 Workshops ao vivo', 'Grupo exclusivo'], icon: '🎓', featured: true },
+            { nome: 'Master com Mentoria', preco: 997, original: 1997, beneficios: ['Tudo do Completo', 'Mentoria individual', 'Receitas vitalícias'], icon: '👑' },
+        ];
+        document.getElementById('plan-grid').innerHTML = plans.map(p => {
+            const mensagem = `Olá! Quero me inscrever no ${p.nome} de Sorvete Artesanal.`;
+            const url = `https://wa.me/5519981909667?text=${encodeURIComponent(mensagem)}`;
+            return `
+                <div class="plan-card${p.featured ? ' featured' : ''}">
+                    ${p.featured ? '<span class="popular-badge">Mais Popular</span>' : ''}
+                    <div style="font-size:3rem;">${p.icon}</div>
+                    <h3>${p.nome}</h3>
+                    <ul style="list-style:none;text-align:left;margin:16px 0;">${p.beneficios.map(b => '<li>✅ '+b+'</li>').join('')}</ul>
+                    <div class="plan-price">R$ ${p.preco.toFixed(2).replace('.',',')}<small style="text-decoration:line-through;color:#b0a49a;">R$ ${p.original.toFixed(2).replace('.',',')}</small></div>
+                    <button class="btn-plan" onclick="window.location.href='${url}'">Inscrever-se</button>
+                </div>
+            `;
+        }).join('');
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const answer = this.querySelector('div:last-child');
+                if (this.classList.contains('open')) {
+                    this.classList.remove('open');
+                    answer.style.maxHeight = '0';
+                } else {
+                    this.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

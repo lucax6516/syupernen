@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MKF9HT6T');</script>
+
+    <!-- Google Analytics + Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5K5JKZ3ZWH"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093234152"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5K5JKZ3ZWH');    // Google Analytics 4
+      gtag('config', 'AW-18093234152');  // Google Ads
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '8188675827878353');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=8188675827878353&ev=PageView&noscript=1"
+    /></noscript>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo - ESP v2</title>
+
+    <!-- Pré-carregamentos e otimizações VTurbo -->
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/6a0d0c2a908ecce40a29f8a4/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/69ff7feba754dbfd9a0bff00/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://license.vturb.com">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .top-alert {
+            background-color: rgb(196, 23, 12);
+            padding: 16px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .top-alert-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .live-indicator {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .live-indicator .counter {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .deadline-notice {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .deadline-notice .limit-day {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .content-frame {
+            max-width: 800px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        .media-container {
+            margin: 24px 0;
+            display: block;
+        }
+
+        .sound-reminder {
+            margin-top: 12px;
+            padding: 12px;
+            background-color: rgb(240, 242, 245);
+            border-radius: 8px;
+            font-size: 15px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .reference-area {
+            margin: 32px auto;
+            max-width: 500px;
+        }
+
+        .reference-header {
+            background-color: rgb(59, 89, 152);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .reference-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            background-color: rgb(240, 242, 245);
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .footer-section {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 48px 20px 24px;
+            margin-top: 64px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-legal {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .live-indicator {
+                font-size: 14px;
+            }
+            .deadline-notice {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKF9HT6T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="top-alert">
+        <div class="top-alert-container">
+            <div class="live-indicator">
+                <span class="counter" id="liveCounterDisplay">...</span> personas están viendo este video.
+            </div>
+            <div class="deadline-notice">
+                Debido a la alta demanda de accesos, garantizamos la presentación solo hasta: <span class="limit-day" id="limitDayDisplay">...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-frame">
+        <div class="media-container">
+            <vturb-smartplayer id="vid-6a0d0c2a908ecce40a29f8a4" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+            <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/6a0d0c2a908ecce40a29f8a4/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+            
+            <p class="sound-reminder">
+                🔊 Por favor, verifique que el sonido esté activado.
+            </p>
+        </div>
+
+        <section class="reference-area">
+            <div class="reference-header">Referencias Científicas</div>
+            <img src="referencias-cientificas.png" alt="Referencias" class="reference-image">
+        </section>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-legal">
+                <div>© 2026 Todos los derechos reservados.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function getRandomViewers() {
+            return Math.floor(Math.random() * (920 - 700 + 1)) + 700;
+        }
+
+        function getTodayFormatted() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        const viewerSpan = document.getElementById('liveCounterDisplay');
+        const dateSpan = document.getElementById('limitDayDisplay');
+
+        if (viewerSpan) viewerSpan.textContent = getRandomViewers();
+        if (dateSpan) dateSpan.textContent = getTodayFormatted();
+
+        setInterval(function() {
+            if (viewerSpan) viewerSpan.textContent = getRandomViewers();
+        }, Math.random() * 5000 + 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Gratuita</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093234152"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18093234152');
+    </script>
+
+    <style>
+        :root {
+            --deep-bg: #1a0a0a;
+            --mid-red: #4a0f0f;
+            --bright-red: #6b1515;
+            --accent: #e53935;
+            --accent-hover: #ef5350;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at center bottom, var(--bright-red) 0%, var(--mid-red) 45%, var(--deep-bg) 100%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            gap: 2.5rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 750px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .call-to-action {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .call-to-action .free-highlight {
+            color: #ff4d4d;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .call-to-action .free-highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 68, 68, 0.25);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .cta-link {
+            background: linear-gradient(to bottom, #e53935, #b71c1c);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 1.1rem 3.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(229, 57, 53, 0.5);
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+        }
+
+        .cta-link:hover {
+            background: linear-gradient(to bottom, #ef5350, #d32f2f);
+            box-shadow: 0 15px 40px rgba(229, 57, 53, 0.65);
+            transform: translateY(-3px);
+        }
+
+        .cta-link:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 20px rgba(229, 57, 53, 0.5);
+        }
+
+        .cta-link .arrow-icon {
+            width: 1.3rem;
+            height: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-link:hover .arrow-icon {
+            transform: translateX(5px);
+        }
+
+        .page-footer {
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: auto;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem 2rem;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.25);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .legal-links a:hover {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        @media (max-width: 600px) {
+            .wrapper {
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+
+            .call-to-action {
+                font-size: 1.4rem;
+            }
+
+            .cta-link {
+                font-size: 1rem;
+                padding: 1rem 2rem;
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .legal-links {
+                gap: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="wrapper">
+        <figure class="hero-image">
+            <img src="capa-presell.jpg" alt="Vista previa de la presentación especial">
+        </figure>
+
+        <p class="call-to-action">
+            Haz clic en el botón de abajo para ver la<br>
+            presentación <span class="free-highlight">¡GRATIS!</span>
+        </p>
+
+        <a href="/espback.html" class="cta-link" id="mainCta">
+            Ver ahora
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+        </a>
+    </main>
+
+    <footer class="page-footer">
+        <nav class="legal-links" aria-label="Enlaces legales">
+            <a href="politica-privacidad.html">Privacidad</a>
+            <a href="termos-uso.html">Términos</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
+            <a href="politica-reembolso.html">Reembolso</a>
+        </nav>
+    </footer>
+
+    <script>
+        (function() {
+            const queryString = window.location.search;
+            if (!queryString) return;
+
+            const mainButton = document.getElementById('mainCta');
+            if (mainButton) {
+                const originalHref = mainButton.getAttribute('href');
+                mainButton.setAttribute('href', originalHref + queryString);
+            }
+
+            const legalAnchors = document.querySelectorAll('.legal-links a');
+            legalAnchors.forEach(function(anchor) {
+                const href = anchor.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                    anchor.setAttribute('href', href + queryString);
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>
