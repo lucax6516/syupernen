@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentación Gratuita</title>
     
+    <!-- Trechos adicionados para o vídeo -->
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/955602f8-b079-41ca-b440-6f2891646fa5/players/6a163e343dd88a6a8f9b1ffc/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/955602f8-b079-41ca-b440-6f2891646fa5/6a163e2b162e4fa4f4db4c9b/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://license.vturb.com">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17873578635"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -46,10 +56,10 @@
             border: 2px solid rgba(255, 255, 255, 0.1);
         }
         
-        .image-container img {
+        /* Ajuste para o player de vídeo ocupar toda a largura e respeitar o container */
+        .image-container vturb-smartplayer {
             display: block;
             width: 100%;
-            height: auto;
         }
         
         .presentation-text {
@@ -136,7 +146,8 @@
 
     <div class="main-content">
         <div class="image-container">
-            <img src="capa-presell.jpg" alt="Presentación Especial">
+            <!-- Substituído imagem pelo player de vídeo -->
+            <vturb-smartplayer id="vid-6a163e343dd88a6a8f9b1ffc" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
         </div>
         
         <p class="presentation-text">Haz clic en el botón de abajo para ver la<br>presentación <span class="highlight">¡GRATIS!</span></p>
@@ -157,6 +168,14 @@
             <a href="politica-reembolso.html">Reembolso</a>
         </div>
     </footer>
+
+    <!-- Script do player de vídeo -->
+    <script type="text/javascript">
+        var s=document.createElement("script");
+        s.src="https://scripts.converteai.net/955602f8-b079-41ca-b440-6f2891646fa5/players/6a163e343dd88a6a8f9b1ffc/v4/player.js";
+        s.async=!0;
+        document.head.appendChild(s);
+    </script>
 
     <script>
         (function() {
